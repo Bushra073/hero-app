@@ -1,0 +1,24 @@
+/*
+  CRITICAL: The three @tailwind directives must be at the very top.
+  These lines tell the PostCSS compiler to inject all of Tailwind's utility classes.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles (Using Inter Font and a light background) 
+  You should only have one copy of the content below these three lines.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+  margin: 0;
+  /* Applying the Inter font */
+  font-family: 'Inter', sans-serif; 
+  /* Setting a very light background for the whole page */
+  background-color: #f8faff;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* You can remove any other content you might have in index.css and use this. */
