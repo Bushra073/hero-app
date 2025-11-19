@@ -4,7 +4,7 @@ import { appsData } from '../data/appsData';
 import { Search, Star, Download, ArrowDownUp } from 'lucide-react';
 import Loading from '../components/Loading';
 
-// Helper component for app card display
+
 const AppCard = ({ app }) => (
   <Link to={`/app/${app.id}`} className="bg-white p-4 rounded-xl shadow-sm hover:shadow-lg transition-all border border-gray-100 hover:border-indigo-200 block">
     <div className="relative">
@@ -28,17 +28,17 @@ const AllApps = () => {
   const [apps, setApps] = useState(appsData);
   const [sortOrder, setSortOrder] = useState(''); // 'desc' (High-Low) or 'asc' (Low-High)
 
-  // Live Search Effect (with loading)
+  
   useEffect(() => {
     setIsLoading(true);
     
-    // Simulate navigation/search delay as per requirements
+    
     const timer = setTimeout(() => {
       let results = appsData.filter(app => 
         app.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
       
-      // Apply sorting after filtering
+      
       if (sortOrder) {
         results.sort((a, b) => {
           if (sortOrder === 'desc') return b.downloads - a.downloads;
@@ -56,20 +56,20 @@ const AllApps = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 animate-fade-in">
-      {/* Title Section */}
+      
       <div className="mb-8">
         <h2 className="text-4xl font-bold text-gray-900">The App Catalog</h2>
         <p className="text-gray-600 mt-2 text-lg">Browse our complete collection of Hero Apps.</p>
       </div>
 
-      {/* Search & States Bar */}
+     
       <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        {/* Total Apps Count */}
+       
         <span className="font-semibold text-gray-700 text-lg">
           <span className="text-indigo-600 font-extrabold">{appsData.length}</span> Total Apps Available
         </span>
         
-        {/* Search Bar */}
+    
         <div className="relative w-full md:w-96">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           <input 
@@ -81,7 +81,7 @@ const AllApps = () => {
           />
         </div>
 
-        {/* Sort Dropdown */}
+   
         <div className="flex items-center gap-2">
           <ArrowDownUp size={18} className="text-indigo-600" />
           <select 
@@ -96,7 +96,7 @@ const AllApps = () => {
         </div>
       </div>
 
-      {/* App Section */}
+   
       {isLoading ? (
         <Loading />
       ) : apps.length > 0 ? (

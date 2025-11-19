@@ -4,21 +4,21 @@ import { Trash2, Download, Package } from 'lucide-react';
 
 const MyInstallation = () => {
   const [installedApps, setInstalledApps] = useState([]);
-  const [sortOrder, setSortOrder] = useState('none'); // 'asc', 'desc', or 'none'
-  const [showToast, setShowToast] = useState(null); // {message: string, type: 'success' | 'error'}
+  const [sortOrder, setSortOrder] = useState('none'); 
+  const [showToast, setShowToast] = useState(null); 
   const navigate = useNavigate();
 
-  // Load installed apps from localStorage on mount
+  
   useEffect(() => {
     loadApps();
   }, []);
 
-  // Sort apps whenever the sort order changes
+
   useEffect(() => {
     if (sortOrder !== 'none') {
         applySort(sortOrder);
     } else {
-        // Reload original order if sort is reset (requires storing original state, or sorting the full list)
+       
         loadApps();
     }
   }, [sortOrder]);
@@ -37,21 +37,21 @@ const MyInstallation = () => {
   };
 
   const handleUninstall = (id, title) => {
-    // 1. Filter out the app
+    
     const updatedList = installedApps.filter(app => app.id !== id);
     
-    // 2. Update state and localStorage
+   
     setInstalledApps(updatedList);
     localStorage.setItem('installedApps', JSON.stringify(updatedList));
     
-    // 3. Show Toast
+    
     setShowToast({ message: `Successfully uninstalled ${title}.`, type: 'success' });
     setTimeout(() => setShowToast(null), 3000);
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 animate-fade-in relative">
-      {/* Custom Toast Message */}
+      
       {showToast && (
         <div className={`fixed top-20 right-5 ${showToast.type === 'success' ? 'bg-indigo-600' : 'bg-red-500'} text-white px-6 py-3 rounded-xl shadow-xl z-50 transition-all duration-300`}>
           {showToast.message}
@@ -64,7 +64,7 @@ const MyInstallation = () => {
             My Installations
         </h2>
         
-        {/* Sort Dropdown */}
+     
         <div className="flex items-center gap-3">
           <span className="text-gray-600 font-medium hidden sm:block">Sort by Downloads:</span>
           <select 

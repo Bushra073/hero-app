@@ -13,15 +13,15 @@ const AppDetails = () => {
   const [isInstalled, setIsInstalled] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
-  // 1. Fetch app and check installation status
+  
   useEffect(() => {
     setIsLoading(true);
     const foundApp = appsData.find(a => a.id === parseInt(id));
     
-    setTimeout(() => { // Simulate loading animation
+    setTimeout(() => {
         if (foundApp) {
             setApp(foundApp);
-            // Check LocalStorage for installation status
+          
             const installedApps = JSON.parse(localStorage.getItem('installedApps')) || [];
             const exists = installedApps.some(a => a.id === foundApp.id);
             setIsInstalled(exists);
@@ -31,22 +31,22 @@ const AppDetails = () => {
 
   }, [id]);
 
-  // 2. Handle Installation
+ 
   const handleInstall = () => {
     if (!app) return;
 
     let installedApps = JSON.parse(localStorage.getItem('installedApps')) || [];
     
-    // Check again to be safe (should be blocked by disabled button)
+  
     if (installedApps.some(a => a.id === app.id)) return;
     
-    // Save the entire app object to local storage
+
     const newInstallList = [...installedApps, app];
     localStorage.setItem('installedApps', JSON.stringify(newInstallList));
     
     setIsInstalled(true);
     
-    // Show Success Toast
+
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
@@ -67,7 +67,7 @@ const AppDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 animate-fade-in relative">
-      {/* Success Toast */}
+      
       {showToast && (
         <div className="fixed top-20 right-5 bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl flex items-center gap-2 z-50 transition-all duration-300">
           <CheckCircle size={20} />
@@ -76,12 +76,12 @@ const AppDetails = () => {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Left Column: Image & Actions */}
+      
         <div className="lg:col-span-1 sticky top-24 self-start">
           <img src={app.image} alt={app.title} className="w-full max-w-sm mx-auto lg:max-w-full rounded-2xl shadow-xl mb-6 object-cover" />
           
           <div className="flex flex-col gap-2">
-            {/* Install Button */}
+            
             <button
               onClick={handleInstall}
               disabled={isInstalled}
@@ -99,12 +99,12 @@ const AppDetails = () => {
           </div>
         </div>
 
-        {/* Right Column: Details, Chart, Description */}
+      
         <div className="lg:col-span-2">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">{app.title}</h1>
           <p className="text-xl text-indigo-600 font-medium mb-8">{app.companyName}</p>
 
-          {/* Stats Grid */}
+         
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
             <StatCard icon={Star} value={app.ratingAvg} label="Rating Avg" color="text-yellow-500" />
             <StatCard icon={Download} value={`${(app.downloads / 1000).toFixed(0)}K+`} label="Downloads" color="text-blue-500" />
@@ -112,13 +112,12 @@ const AppDetails = () => {
             <StatCard icon={HardDrive} value={`${app.size}MB`} label="App Size" color="text-purple-500" />
           </div>
 
-          {/* Description */}
           <div className="mb-10 p-6 bg-white rounded-xl shadow-sm border border-gray-100">
             <h3 className="text-2xl font-bold mb-4 text-indigo-600 border-b pb-2">App Description</h3>
             <p className="text-gray-700 leading-relaxed text-base">{app.description}</p>
           </div>
 
-          {/* Recharts Graph */}
+        
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <h3 className="text-2xl font-bold mb-6 text-gray-800">User Ratings Breakdown</h3>
             <div className="h-64 w-full">
@@ -146,7 +145,6 @@ const AppDetails = () => {
   );
 };
 
-// Helper component for Stat Cards
 const StatCard = ({ icon: Icon, value, label, color }) => (
     <div className="bg-white p-4 rounded-xl border border-gray-100 text-center shadow-sm">
         <Icon className={`mx-auto ${color} mb-2`} size={24} />

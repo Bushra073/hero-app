@@ -9,11 +9,11 @@ const Footer = () => {
           <p className="text-gray-400 text-sm mt-2">Designed and built with passion for productivity.</p>
         </div>
         
-        {/* Links Section (Custom Creativity) */}
+       
         <div className="flex justify-center space-x-6 text-sm mb-4">
             <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">Terms of Service</a>
-            <a href="https://github.com/YOUR_GITHUB_PROFILE" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors">GitHub</a>
+            <a href="https://github.com/Bushra073" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors">GitHub</a>
         </div>
         
         <div className="border-t border-gray-800 pt-4">

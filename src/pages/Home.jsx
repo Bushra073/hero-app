@@ -4,10 +4,10 @@ import { appsData } from '../data/appsData';
 import { ArrowRight, Download, Star, Globe, Smartphone, Users } from 'lucide-react';
 
 const Home = () => {
-  // Get top 8 apps for the showcase
+  
   const topApps = appsData.slice(0, 8);
 
-  // Helper function to render star rating
+  
   const RatingStars = ({ ratingAvg }) => {
     const stars = [];
     const fullStars = Math.floor(ratingAvg);
@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* 1. Banner Section */}
+  
       <section className="bg-gradient-to-br from-indigo-600 to-purple-700 text-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">The Hero App Store</h1>
@@ -43,7 +43,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. States Section */}
+   
       <section className="max-w-7xl mx-auto px-4 -mt-10 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
@@ -60,7 +60,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 3. Top Apps Section */}
+     
       <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="flex justify-between items-end mb-8">
           <div>

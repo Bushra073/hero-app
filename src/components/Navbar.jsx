@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          {/* Logo - Navigates to home */}
+         
           <div 
             className="flex items-center cursor-pointer" 
             onClick={() => navigate('/')}
@@ -27,7 +27,7 @@ const Navbar = () => {
             <span className="text-2xl font-bold text-gray-900">Hero Store</span>
           </div>
 
-          {/* Desktop Links & Contribution Button */}
+         
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <NavLink
@@ -45,7 +45,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <a 
-              href="https://github.com/YOUR_GITHUB_PROFILE" // Link to your GitHub profile
+              href="https://github.com/Bushra073" 
               target="_blank" 
               rel="noreferrer"
               className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-gray-800 transition-colors"
@@ -82,7 +82,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <a 
-              href="https://github.com/YOUR_GITHUB_PROFILE"
+              href="https://github.com/Bushra073"
               target="_blank" 
               rel="noreferrer"
               className="block bg-gray-900 text-white px-3 py-2 mt-2 rounded-md text-base font-medium text-center hover:bg-gray-800"
