@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
-// Import necessary icons from lucide-react (these are installed)
+// Import necessary icons and Recharts components
 import { Home, ShoppingCart, Info, Trash2, Package, TrendingUp, BarChart4, ChevronLeft } from "lucide-react";
-// Import Recharts components for the chart (these are installed)
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 /**
  * --- Application Data ---
- * The list of fictional hero-themed productivity tools.
  */
 const INITIAL_PRODUCTS = [
   {
@@ -83,12 +81,10 @@ const INITIAL_PRODUCTS = [
  * --- Utility Components ---
  */
 
-// Format price to US currency
 const formatPrice = (price) => {
   return price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 };
 
-// Component to display product rating stars
 const StarRating = ({ rating }) => {
   const fullStars = Math.floor(rating);
   const stars = [];
@@ -102,7 +98,6 @@ const StarRating = ({ rating }) => {
   return <div className="flex items-center space-x-0.5">{stars}</div>;
 };
 
-// Custom toast/modal component instead of alert()
 const Toast = ({ message, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -121,14 +116,12 @@ const Toast = ({ message, onClose }) => {
 
 /**
  * --- Page Components ---
- * Defined internally within this file to avoid external imports.
  */
 
 // 1. Home Page: Product List
 const HomePage = ({ products, onAddToCart, onNavigate }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter products based on search term (case-insensitive)
   const filteredProducts = useMemo(() => {
     if (!searchTerm) return products;
     return products.filter(product =>
@@ -143,7 +136,7 @@ const HomePage = ({ products, onAddToCart, onNavigate }) => {
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800">The Hero Store</h1>
         <button
           onClick={() => onNavigate('cart')}
-          className="bg-indigo-500 text-white py-2 px-4 rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 transform hover:scale-[1.02]"
+          className="bg-indigo-500 text-white py-2 px-4 rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 transform hover:scale-[1.02] flex items-center"
         >
           <ShoppingCart className="w-5 h-5 inline-block mr-1" />
           View Cart
@@ -230,7 +223,6 @@ const AppDetailsPage = ({ products, productId, onAddToCart, onNavigate }) => {
     );
   }
 
-  // Memoize data for the chart
   const chartData = useMemo(() => product.chartData, [product.chartData]);
 
   return (
@@ -267,7 +259,7 @@ const AppDetailsPage = ({ products, productId, onAddToCart, onNavigate }) => {
               <p className="text-3xl font-extrabold text-green-600 pt-2">{formatPrice(product.price)}</p>
 
               <div className="flex items-center space-x-4">
-                <span className={`px-3 py-1 text-sm font-semibold rounded-full ${
+                <span className={`px-3 py-1 text-sm font-semibold rounded-full flex items-center ${
                   product.stock > 10 ? 'bg-green-100 text-green-700' :
                   product.stock > 0 ? 'bg-yellow-100 text-yellow-700' :
                   'bg-red-100 text-red-700'
@@ -403,7 +395,7 @@ const CartPage = ({ cart, onUpdateCart, onNavigate }) => {
         </div>
 
         {/* Cart Summary (Right/Bottom) */}
-        <div className="lg:col-span-1 bg-white p-6 rounded-2xl shadow-xl h-fit sticky top-4">
+        <div className="lg:col-span-1 bg-white p-6 rounded-2xl shadow-xl h-fit sticky top-20">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Order Summary</h2>
           <div className="space-y-3 text-gray-700">
             <div className="flex justify-between">
@@ -427,9 +419,8 @@ const CartPage = ({ cart, onUpdateCart, onNavigate }) => {
             className="w-full bg-pink-600 text-white p-3 mt-6 rounded-xl text-lg font-bold shadow-lg hover:bg-pink-700 transition duration-300 disabled:bg-pink-300"
             onClick={() => {
               if (cart.length > 0) {
-                // Using a custom toast/modal instead of alert()
                 setToastMessage("Checkout successful! Thank you for boosting your productivity!");
-                onUpdateCart([]); // Clear the cart
+                setCart([]); // Clear the cart
                 onNavigate('home');
               }
             }}
@@ -455,21 +446,17 @@ const CartPage = ({ cart, onUpdateCart, onNavigate }) => {
  * Handles state, routing (using a switch/case block), and data management.
  */
 const App = () => {
-  // State for cart and current page/product details
   const [cart, setCart] = useState([]);
-  // Using state to manage navigation between the "pages"
   const [page, setPage] = useState('home'); // 'home', 'cart', or 'details'
   const [detailProductId, setDetailProductId] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
 
-  // Simple page navigation handler (simulates routing without external libraries)
   const handleNavigate = (newPage, productId = null) => {
     setDetailProductId(productId);
     setPage(newPage);
-    window.scrollTo(0, 0); // Scroll to top on navigation
+    window.scrollTo(0, 0);
   };
 
-  // Add a product to the cart or increment quantity if it exists
   const handleAddToCart = (product) => {
     const existingItem = cart.find(item => item.id === product.id);
 
@@ -486,7 +473,6 @@ const App = () => {
     }
   };
 
-  // Render the current page based on the 'page' state
   const renderPage = () => {
     switch (page) {
       case 'cart':
@@ -512,56 +498,61 @@ const App = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50 antialiased">
-      {/* Navigation Bar */}
-      <nav className="bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex">
-              <div className="flex-shrink-0 flex items-center">
-                <BarChart4 className="h-7 w-7 text-indigo-600 mr-2" />
-                <span className="text-2xl font-bold text-gray-900">HeroStore</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => handleNavigate('home')}
-                className={`flex items-center px-3 py-2 rounded-xl text-sm font-medium transition duration-150 ${
-                  page === 'home' ? 'bg-indigo-50 text-indigo-700' : 'text-gray-500 hover:text-indigo-700 hover:bg-gray-50'
-                }`}
-              >
-                <Home className="w-5 h-5 mr-1" /> Store
-              </button>
-              <button
-                onClick={() => handleNavigate('cart')}
-                className={`flex items-center px-3 py-2 rounded-xl text-sm font-medium transition duration-150 ${
-                  page === 'cart' ? 'bg-indigo-50 text-indigo-700' : 'text-gray-500 hover:text-indigo-700 hover:bg-gray-50'
-                } relative`}
-              >
-                <ShoppingCart className="w-5 h-5" />
-                {cart.length > 0 && (
-                  <span className="absolute -top-1 -right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
-                    {cart.reduce((sum, item) => sum + item.quantity, 0)}
-                  </span>
-                )}
-                <span className="ml-1 hidden sm:inline">Cart</span>
-              </button>
-            </div>
+  // Internal Navigation Bar component (defined here for self-contained file)
+  const Navbar = () => (
+    <nav className="bg-white shadow-lg sticky top-0 z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center cursor-pointer" onClick={() => handleNavigate('home')}>
+            <BarChart4 className="h-7 w-7 text-indigo-600 mr-2" />
+            <span className="text-2xl font-bold text-gray-900">HeroStore</span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => handleNavigate('home')}
+              className={`flex items-center px-3 py-2 rounded-xl text-sm font-medium transition duration-150 ${
+                page === 'home' ? 'bg-indigo-100 text-indigo-800' : 'text-gray-600 hover:text-indigo-800 hover:bg-gray-50'
+              }`}
+            >
+              <Home className="w-5 h-5 mr-1" /> Store
+            </button>
+            <button
+              onClick={() => handleNavigate('cart')}
+              className={`flex items-center px-3 py-2 rounded-xl text-sm font-medium transition duration-150 ${
+                page === 'cart' ? 'bg-indigo-100 text-indigo-800' : 'text-gray-600 hover:text-indigo-800 hover:bg-gray-50'
+              } relative`}
+            >
+              <ShoppingCart className="w-5 h-5" />
+              {cart.length > 0 && (
+                <span className="absolute -top-1 -right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full min-w-5 h-5">
+                  {cart.reduce((sum, item) => sum + item.quantity, 0)}
+                </span>
+              )}
+              <span className="ml-1 hidden sm:inline">Cart</span>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
+  );
 
+  // Internal Footer component (defined here for self-contained file)
+  const Footer = () => (
+    <footer className="w-full bg-white border-t border-gray-200 mt-12 py-6">
+      <div className="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
+        &copy; {new Date().getFullYear()} HeroStore. All productivity solutions reserved.
+      </div>
+    </footer>
+  );
+
+
+  return (
+    <div className="min-h-screen bg-gray-50 antialiased">
+      <Navbar />
       <main className="max-w-7xl mx-auto flex-grow">
         {renderPage()}
       </main>
-      
-      {/* Simple Footer */}
-      <footer className="w-full bg-white border-t border-gray-100 mt-auto py-4">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} HeroStore. All productivity solutions reserved.
-        </div>
-      </footer>
+      <Footer />
 
       {/* Toast Notification */}
       {toastMessage && (

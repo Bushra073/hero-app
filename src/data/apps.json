@@ -1,0 +1,218 @@
+[
+  {
+    "image": "/apps/app1.png",
+    "title": "PhotoMagic",
+    "companyName": "BrightApps",
+    "id": 1,
+    "description": "A powerful photo editor with filters and AI effects.",
+    "size": 48,
+    "reviews": 1245,
+    "ratingAvg": 4.5,
+    "downloads": 250000,
+    "ratings": [
+      { "name": "1 star", "count": 45 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 200 },
+      { "name": "4 star", "count": 480 },
+      { "name": "5 star", "count": 500 }
+    ]
+  },
+  {
+    "image": "/apps/app2.png",
+    "title": "TaskFlow",
+    "companyName": "AcmeSoft",
+    "id": 2,
+    "description": "A modern todo and task management app.",
+    "size": 32,
+    "reviews": 234,
+    "ratingAvg": 4.2,
+    "downloads": 125000,
+    "ratings": [
+      { "name": "1 star", "count": 10 },
+      { "name": "2 star", "count": 4 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 70 }
+    ]
+  },
+  {
+    "image": "/apps/app3.png",
+    "title": "FitTrack",
+    "companyName": "Wellness Co",
+    "id": 3,
+    "description": "Track workouts, steps and nutrition easily.",
+    "size": 54,
+    "reviews": 984,
+    "ratingAvg": 4.6,
+    "downloads": 430000,
+    "ratings": [
+      { "name": "1 star", "count": 18 },
+      { "name": "2 star", "count": 9 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 260 },
+      { "name": "5 star", "count": 657 }
+    ]
+  },
+  {
+    "image": "/apps/app4.png",
+    "title": "RecipeBook",
+    "companyName": "KitchenLabs",
+    "id": 4,
+    "description": "Save and share your favorite recipes.",
+    "size": 22,
+    "reviews": 540,
+    "ratingAvg": 4.1,
+    "downloads": 90000,
+    "ratings": [
+      { "name": "1 star", "count": 8 },
+      { "name": "2 star", "count": 6 },
+      { "name": "3 star", "count": 80 },
+      { "name": "4 star", "count": 200 },
+      { "name": "5 star", "count": 246 }
+    ]
+  },
+  {
+    "image": "/apps/app5.png",
+    "title": "LanguagePal",
+    "companyName": "LinguaCorp",
+    "id": 5,
+    "description": "Learn languages with mini-lessons and games.",
+    "size": 60,
+    "reviews": 3000,
+    "ratingAvg": 4.8,
+    "downloads": 900000,
+    "ratings": [
+      { "name": "1 star", "count": 30 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 200 },
+      { "name": "4 star", "count": 1200 },
+      { "name": "5 star", "count": 1550 }
+    ]
+  },
+  {
+    "image": "/apps/app6.png",
+    "title": "BudgetBuddy",
+    "companyName": "FinanceHub",
+    "id": 6,
+    "description": "Personal finance & budget tracker.",
+    "size": 38,
+    "reviews": 870,
+    "ratingAvg": 4.4,
+    "downloads": 190000,
+    "ratings": [
+      { "name": "1 star", "count": 14 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 90 },
+      { "name": "4 star", "count": 300 },
+      { "name": "5 star", "count": 356 }
+    ]
+  },
+  {
+    "image": "/apps/app7.png",
+    "title": "Newsly",
+    "companyName": "DailyMedia",
+    "id": 7,
+    "description": "Curated news and live updates.",
+    "size": 28,
+    "reviews": 652,
+    "ratingAvg": 4.0,
+    "downloads": 145000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 100 },
+      { "name": "4 star", "count": 250 },
+      { "name": "5 star", "count": 252 }
+    ]
+  },
+  {
+    "image": "/apps/app8.png",
+    "title": "KidsLearn",
+    "companyName": "BrightMinds",
+    "id": 8,
+    "description": "Interactive learning for kids.",
+    "size": 44,
+    "reviews": 420,
+    "ratingAvg": 4.3,
+    "downloads": 98000,
+    "ratings": [
+      { "name": "1 star", "count": 5 },
+      { "name": "2 star", "count": 3 },
+      { "name": "3 star", "count": 60 },
+      { "name": "4 star", "count": 160 },
+      { "name": "5 star", "count": 192 }
+    ]
+  },
+  {
+    "image": "/apps/app9.png",
+    "title": "MindSpace",
+    "companyName": "Mindful Inc",
+    "id": 9,
+    "description": "Meditation and breathing exercises.",
+    "size": 18,
+    "reviews": 1800,
+    "ratingAvg": 4.7,
+    "downloads": 520000,
+    "ratings": [
+      { "name": "1 star", "count": 25 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 60 },
+      { "name": "4 star", "count": 400 },
+      { "name": "5 star", "count": 1303 }
+    ]
+  },
+  {
+    "image": "/apps/app10.png",
+    "title": "MapsNow",
+    "companyName": "GeoTech",
+    "id": 10,
+    "description": "Offline maps and navigation.",
+    "size": 85,
+    "reviews": 1030,
+    "ratingAvg": 4.3,
+    "downloads": 310000,
+    "ratings": [
+      { "name": "1 star", "count": 40 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 120 },
+      { "name": "4 star", "count": 400 },
+      { "name": "5 star", "count": 455 }
+    ]
+  },
+  {
+    "image": "/apps/app11.png",
+    "title": "StudyMate",
+    "companyName": "EduWorks",
+    "id": 11,
+    "description": "Study planner and flashcards.",
+    "size": 27,
+    "reviews": 700,
+    "ratingAvg": 4.2,
+    "downloads": 100000,
+    "ratings": [
+      { "name": "1 star", "count": 15 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 85 },
+      { "name": "4 star", "count": 250 },
+      { "name": "5 star", "count": 340 }
+    ]
+  },
+  {
+    "image": "/apps/app12.png",
+    "title": "WeatherPro",
+    "companyName": "ClimateTech",
+    "id": 12,
+    "description": "Accurate weather forecasts and alerts.",
+    "size": 30,
+    "reviews": 950,
+    "ratingAvg": 4.1,
+    "downloads": 210000,
+    "ratings": [
+      { "name": "1 star", "count": 22 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 150 },
+      { "name": "4 star", "count": 350 },
+      { "name": "5 star", "count": 410 }
+    ]
+  }
+]

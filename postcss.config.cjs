@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
-    // This is the dedicated PostCSS plugin for Tailwind CSS
-    '@tailwindcss/postcss': {},
+    // Explicitly using the PostCSS plugin package recommended by the error message.
+    '@tailwindcss/postcss': {}, 
     autoprefixer: {},
   },
 }
